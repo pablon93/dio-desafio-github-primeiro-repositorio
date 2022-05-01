@@ -16,7 +16,7 @@ class ContaBancaria{
 
     sacar(valor){
         if (valor > this._saldo){
-            return "Operação Negada!";
+            return "Operação Negada! Saldo Insuficiente";
         }
         this._saldo = this._saldo - valor;
 
@@ -59,12 +59,13 @@ class ContaUniversitaria extends ContaBancaria {
     }
 
     sacar(valor) {
+        if (valor > this._saldo){
+            return "Operação Negada! Saldo Insuficiente";
+        }    
         if (valor > 500){
             return "Operação Inválida - Valor Máximo Para Saque: R$500,00"
         }
         this._saldo = this._saldo - valor;
-        return this._saldo;
+        return this._saldo;        
     }
 }
-
-
